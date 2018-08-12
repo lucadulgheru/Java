@@ -1,0 +1,43 @@
+package tp7ex1;
+
+public class TestPersonne {
+    
+    
+    public static void main(String[] args)
+            
+    {
+        
+    Personne personne1= new Personne();
+    Personne personne2= new Personne("Scott","Travis",25,"M");
+    Personne personne3= new Personne("Townsend","Macaiyla",30,"F");
+    Personne personne4= new Personne("Clinton","Hillary",60,"F");
+    Personne personne5= new Personne("Roig","Cyril",35,"M");
+    
+    
+    int i,n=5,maxi=0;
+    Personne[] list=new Personne[n];
+    
+   
+      list[0]=personne1;
+      list[1]=personne2;
+      list[2]=personne3;
+      list[3]=personne4;
+      list[4]=personne5;
+      
+      
+      
+      for(i=0;i<n;i++)
+          if(list[i].getAge()>maxi && list[i].getSexe()=="F")
+              maxi=list[i].getAge();
+      
+      
+     for(i=0;i<n;i++)
+         if(list[i].getAge()==maxi)
+      
+     System.out.print(list[i].getNom()+" "+list[i].getPrenom()+" "+list[i].getAge()+" "+list[i].getSexe());
+    
+        
+    }
+    
+    
+}

@@ -1,0 +1,159 @@
+
+package tp12;
+
+
+import java.io.*;
+import java.util.ArrayList;
+
+
+
+abstract class Ticket{
+    
+    private int lineNumber;
+    private int seat;
+    private int tax;
+    private double price;
+    
+    Ticket(int lineNumber, int seat, int tax, double price){
+        
+        this.lineNumber=lineNumber;
+        this.seat=seat;
+        this.tax=tax;
+        this.price=price;
+        
+    }
+    
+    public abstract double calculateFinalPrice();
+
+    @Override
+    public String toString() {
+        return "Ticket{" + "lineNumber=" + lineNumber + ", seat=" + seat + ", tax=" + tax + ", price=" + price + '}';
+    }
+
+    public int getTax() {
+        return tax;
+    }
+
+    public double getPrice() {
+        return price;
+    }
+
+    public int getLineNumber() {
+        return lineNumber;
+    }
+
+    public int getSeat() {
+        return seat;
+    }
+    
+    
+    
+}
+
+
+
+class EventTicket extends Ticket{
+
+    public EventTicket(int lineNumber, int seat, int tax, double price) {
+        super(lineNumber, seat, tax, price);
+    }
+    
+    
+    
+    public double calculateFinalPrice(){
+        
+        return getTax()+getPrice();
+        
+    }
+    
+    
+    
+
+    }
+
+class NormalTicket extends Ticket{
+
+    public NormalTicket(int lineNumber, int seat, int tax, double price) {
+        super(lineNumber, seat, tax, price);
+    }
+    
+    
+    public double calculateFinalPrice(){
+        
+        return getPrice()-5;
+        
+    }
+}
+
+
+class Representation{
+    
+    private String name;
+    private String date;
+    private boolean isEvent;
+
+    Representation(String name, String date, boolean isEvent){
+        
+        this.name=name;
+        this.date=date;
+        this.isEvent=isEvent;
+    }
+
+    public boolean isIsEvent() {
+        return isEvent;
+    }
+    
+    
+    
+    
+    @Override
+    public String toString() {
+        return "Representation{" + "name=" + name + ", date=" + date + ", isEvent=" + isEvent + '}';
+    }
+    
+    
+    
+}
+
+
+
+
+public class TP12 {
+
+    
+    
+    public static void main(String[] args) throws IOException{
+        
+        
+        ArrayList<Representation> rep=new ArrayList<>();   
+        
+     EventTicket e=new EventTicket(10, 3, 10, 20);
+     NormalTicket n=new NormalTicket(12, 4, 0, 14);
+     e.calculateFinalPrice();
+     n.calculateFinalPrice();
+     
+       FileInputStream fstream= new FileInputStream("representations.txt");
+DataInputStream in = new DataInputStream(fstream);
+BufferedReader br=new BufferedReader(new InputStreamReader(in));
+String strLine; 
+int i=0;
+while(((strLine=br.readLine())!=null) && (i<5)){
+String [] words=strLine.split(" ");
+rep.add(new Representation(words[0],words[1],Boolean.parseBoolean(words[2])));
+i++;}
+
+in.close();
+
+FileWriter fstream2=new FileWriter("tickets.txt");
+BufferedWriter out=new BufferedWriter(fstream2);
+ for(i=0;i<rep.size();i++){
+     if(rep.get(i).isIsEvent()==true)
+    out.write(e.toString());
+    out.newLine();
+   if(rep.get(i).isIsEvent()==false)
+ out.write(n.toString());
+out.close();}
+        
+    }
+    
+}

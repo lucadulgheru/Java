@@ -1,0 +1,226 @@
+package tp11;
+
+
+import java.io.*;
+import java.util.ArrayList;
+
+ abstract class HardwareProduit {
+    
+    private double monnaiePrix;
+    private double leiPrix;
+    private double note;
+    private double performance;
+    
+    
+    
+    public HardwareProduit(){
+        
+        
+        
+    }
+    
+
+    
+    
+    public abstract void calculerPerformance();
+    public abstract void calculerPrixLei();
+
+  
+        
+   
+
+ double getleiPrix(){
+     
+     
+     return leiPrix;
+ }
+
+    public void setLeiPrix(double leiPrix) {
+        this.leiPrix = leiPrix;
+    }
+    
+    
+    public double getperformance(){
+        
+        
+        return performance;
+    }
+
+    public double getMonnaiePrix() {
+        return monnaiePrix;
+    }
+
+    public double getNote() {
+        return note;
+    }
+
+    public void setMonnaiePrix(double monnaiePrix) {
+        this.monnaiePrix = monnaiePrix;
+    }
+
+    public void setNote(double note) {
+        this.note = note;
+    }
+
+    public void setPerformance(double performance) {
+        this.performance = performance;
+    }
+ 
+
+    
+    
+    @Override
+    public String toString() {
+        return "Prix(E/USD)=" + monnaiePrix + "| Prix(Lei)=" + leiPrix + "| Note=" + note + "| Performance=" + performance;
+    }
+        
+ }
+
+
+ class Moniteur extends HardwareProduit {
+    
+    
+    private long monnaie;
+    private int maximumNote=110;
+ 
+  
+    
+    public Moniteur(double monnaiePrix, double note){
+       
+        setMonnaiePrix(monnaiePrix);
+        setNote(note);
+        
+    }
+    
+    
+    
+        public void calculerPrixLei(){
+            
+            
+            setLeiPrix(getMonnaiePrix()*(3.92));
+            
+        }
+        
+        
+        public void calculerPerformance(){
+            
+           setPerformance((getNote()/maximumNote)*100);
+            
+        }
+
+
+        
+        
+     
+    
+}
+ 
+ 
+ 
+ 
+ 
+ class CarteVideo extends HardwareProduit{
+     
+     
+     private long monnaie;
+     private int maximumNote=80;
+     
+     
+     public CarteVideo(double monnaiePrix, double note){
+         
+         setMonnaiePrix(monnaiePrix);
+         setNote(note);
+         
+     }
+     
+     
+     public void calculerPrixLei(){
+         
+        setLeiPrix(getMonnaiePrix()*(4.63));
+         
+     }
+     
+     
+     public void calculerPerformance(){
+         
+         
+         setPerformance(getNote()/maximumNote*110);
+     }
+     
+     
+ }
+
+
+
+class TestShop{
+    
+    
+   /*String filename1="CartesGraphiques.txt";
+    String filename2="Moniteurs.txt";
+    String line=null;
+    
+    try{
+    
+    FileReader fileReader1=new FileReader(filename1);
+    FileReader fileReader2=new FileReader(filename2);
+    BufferedReader bufferedReader1=new BufferedReader(fileReader1);
+    BufferedReader bufferedReader2=new BufferedReader(fileReader2);
+    
+    while(line=bufferedReader1.readLine()!=null)
+    
+    
+}*/
+    
+    ArrayList<HardwareProduit> products=new ArrayList<HardwareProduit>();
+    
+    CarteVideo c1=new CarteVideo(130,76);
+    CarteVideo c2=new CarteVideo(108,77.79);
+    CarteVideo c3=new CarteVideo(152,72.55);
+    CarteVideo c4=new CarteVideo(53,54.69);
+    Moniteur m1 = new Moniteur(249,78);
+    Moniteur m2 = new Moniteur(224,95);
+    Moniteur m3 = new Moniteur(249,96);
+    Moniteur m4 = new Moniteur(279,107);
+    
+       public void Test(){
+        
+           products.add(c1);
+           products.add(c2);
+           products.add(c3);
+           products.add(c4);
+           products.add(m1);
+           products.add(m2);
+           products.add(m3);
+           products.add(m4);
+          
+          
+           
+           
+           for(int i=0;i<products.size();i++){
+               products.get(i).calculerPerformance();
+               products.get(i).calculerPrixLei();
+              System.out.println(products.get(i).getClass().getSimpleName()+" "+products.get(i).toString());
+         
+           }
+        
+       }
+   
+    
+}
+
+public class TP11{
+
+
+  
+    public static void main(String[] args) {
+        
+        
+        TestShop shop=new TestShop();
+        
+        shop.Test();
+        
+        
+    }
+    
+
+}

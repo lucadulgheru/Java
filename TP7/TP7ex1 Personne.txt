@@ -1,0 +1,91 @@
+package tp7ex1;
+
+
+
+
+public class Personne {
+    
+    String nom;
+    String prenom;
+    int age;
+    String sexe;
+    
+    
+    public Personne(){
+        
+        this.nom="Charpentier";
+        this.prenom="Luc-Florin";
+        this.age=19;
+        this.sexe="F";
+        
+        
+    }
+    
+    public Personne(String nom, String prenom){
+        
+        this.nom=nom;
+        this.prenom=prenom;
+        
+    }
+    
+    
+    public Personne(String nom, String prenom, int age){
+        
+        this.nom=nom;
+        this.prenom=prenom;
+        this.age=age;
+        
+    }
+    
+    public Personne(String nom, String prenom, int age, String sexe){
+    
+        this.nom=nom;
+        this.prenom=prenom;
+        this.age=age;
+        this.sexe=sexe;
+        
+    }
+    
+    public String getNom(){
+        
+        
+        
+       
+        return nom;
+        
+        
+    }
+    
+    public String getPrenom(){
+        
+        
+        
+        return prenom;
+    }
+    
+    
+    
+    
+    public int getAge(){
+        
+        
+        
+        
+        return age;
+    }
+    
+    public String getSexe(){
+        
+        
+        
+        return sexe;
+    }
+    
+    
+    
+    
+ 
+}
+
+
+

@@ -1,0 +1,170 @@
+
+package tp10;
+
+
+ class Loan {
+    
+    private int id;
+    private int number;
+    private String firstName;
+    private String lastName;
+    private String address;
+    private String frequency;
+    private double sum;
+    private double instalment;
+    private double unpaidSum;
+    
+    
+    
+    public Loan(String firstName, String lastName, String address, double sum){
+     
+     
+     this.firstName=firstName;
+     this.lastName=lastName;
+     this.address=address;
+     this.sum=sum;
+     
+     
+ }
+    
+    public Loan(String firstName, String lastName, String address, String frequency, double sum){
+     
+     
+     this.firstName=firstName;
+     this.lastName=lastName;
+     this.address=address;
+     this.frequency=frequency;
+     this.sum=sum;
+     
+     
+ }
+     
+     public double getUnpaidSum(){
+         
+         return unpaidSum;
+         
+         
+     }
+     
+     
+     public void setUnpaidSum(double unpaidSum){
+         
+         
+         this.unpaidSum=sum;
+         
+     }
+     
+     
+     public void computeInstalment(){
+         
+         instalment = (1/10)*sum;
+         
+     }
+     
+     
+     public void payInstalment(){
+         
+         sum=sum-instalment;
+         
+     }
+
+    @Override
+    public String toString() {
+        return "Loan{" + "id=" + id + ", number=" + number + ", firstName=" + firstName + ", lastName=" + lastName + ", address=" + address + ", frequency=" + frequency + ", sum=" + sum + ", instalment=" + instalment + ", unpaidSum=" + unpaidSum + '}';
+    }
+    
+    
+     
+     
+     
+}
+
+
+
+ class ApartmentLoan extends Loan {
+     
+    public ApartmentLoan(String firstName, String lastName, String address, String frequency, double sum) {
+        super(firstName, lastName, address, frequency, sum);
+    }
+     
+    
+    
+    
+    
+    @Override
+    
+    public void computeInstalment(){
+        
+        
+       
+      
+        
+    }
+    
+    
+
+    }
+     
+     
+     
+     
+     
+     
+  
+     
+     
+     
+
+
+
+class HouseholdProductLoan extends Loan{
+    
+    public HouseholdProductLoan(String firstName, String lastName, String address, String frequency, double sum) {
+        super(firstName, lastName, address, frequency, sum);
+    }
+    
+    
+    
+    @Override
+    
+    public void computeInstalment(){
+        
+        
+    }
+    
+    
+}
+
+
+
+
+class LoanTest{
+    
+    
+  Loan ap = new Loan("Luc", "Charpentier", "Beverly Hills 55 C", "Once per month", 500000);
+    HouseholdProductLoan hp=new HouseholdProductLoan("Luc","Charpentier","Beverly Hills 55C","Once every 3 months", 2000);
+  
+   public void test(){
+       
+           ap.computeInstalment();
+            ap.payInstalment();
+             System.out.print(ap.getUnpaidSum());
+       
+   }
+}
+
+
+
+public class TP10 {
+
+   
+    public static void main(String[] args) {
+       
+        
+        LoanTest t=new LoanTest();
+        t.test();
+        
+        
+    }
+    
+}

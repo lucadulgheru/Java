@@ -1,0 +1,173 @@
+package tp4ex2;
+import javax.swing.JOptionPane;
+public class TP4ex2 {
+
+    
+    public static void main(String[] args) {
+    int d;
+    int i,j,z;
+    int s=0;  
+    int p=1;
+    int maxi,lowerthanmaxi;
+    int n=Integer.parseInt(JOptionPane.showInputDialog("n="));
+    int [][]a=new int[n][n];
+    int [][]a2=new int [n][n];
+    int [][]a3=new int [n][n];
+    int [][]c=new int [n][n];
+    //a
+    for( i=0;i<a.length;i++){
+      for( j=0;j<a[i].length;j++)
+           a[i][j]=Integer.parseInt(JOptionPane.showInputDialog(null));
+          }
+    
+   //b
+   System.out.print("b)");
+    for(i=0;i<a.length;i++){
+        System.out.println();
+      for(j=0;j<a[i].length;j++)
+          System.out.print(a[i][j]+" ");
+          }
+    //c
+    for(i=0;i<a.length;i++){
+        for(j=0;j<a[i].length;j++){
+            if(a[i][j]%2==0)
+                p=p*a[i][j];
+        }
+    }
+    System.out.println();
+    System.out.print("c)"+"P="+p);
+    System.out.println();
+    System.out.print("d)");
+    //d
+    int k=Integer.parseInt(JOptionPane.showInputDialog(null,"Insert choice:"));
+    switch(k){
+        case 1:{
+            for(i=0;i<a.length;i++){
+                for(j=0;j<a[i].length;j++)
+                    if(j+1<n-i+1 && a[i][j]>=0)
+                        s=s+(int)Math.pow(a[i][j],2);
+                    }
+             System.out.print("S="+s);
+              break;
+        }
+        
+        case 2:{
+            for(i=0;i<a.length;i++){
+                for(j=0;j<a[i].length;j++)
+                    if(i+j+2<n+1 && i<j && a[i][j]>=0)
+                       s=s+(int)Math.pow(a[i][j],2); 
+                    }
+            System.out.print("S="+s);
+            break;
+            }
+        default:{
+           System.out.print("Option unavailable!");
+        }
+        }
+    
+    System.out.println();
+    System.out.print("e)");
+    int counter=0;
+    for(i=0;i<a.length;i++){
+        for(j=0;j<a[i].length;j++)
+            if(a[i][j]%2!=0 && a[i][j]<0)
+                counter++;
+    }
+    
+    //e 
+    int [] v=new int[counter];
+    int y=0;
+      
+        for(i=0;i<a.length;i++){
+            for(j=0;j<a[i].length;j++){
+                if(a[i][j]%2!=0 && a[i][j]<0){
+                    v[y]=a[i][j];
+                     y++;}
+                     }
+        }
+        
+          for(y=0;y<v.length;y++)
+       System.out.print(v[y]+" ");
+          
+      //f
+      System.out.println();
+      System.out.print("f)");
+      maxi=-999999;
+      for(y=0;y<v.length;y++){
+          if(v[y]>maxi)
+            maxi=v[y];}
+      
+      lowerthanmaxi=-999999;
+      for(y=0;y<v.length;y++){
+         if(v[y]>lowerthanmaxi&&v[y]!=maxi)
+             lowerthanmaxi=v[y];}
+      
+      System.out.print("The 2 highest values of v:");
+      System.out.println(maxi+" "+lowerthanmaxi);
+      
+      d=maxi%lowerthanmaxi;
+       while(d!=0){
+           d=maxi%lowerthanmaxi;
+           maxi=lowerthanmaxi;
+           lowerthanmaxi=d;
+       }
+      
+      System.out.println("Greatest common diviser:"+maxi);
+     
+      
+      
+      //g 
+      System.out.print("g)");
+      for(i=0;i<n;i++)
+            for(j=0;j<n;j++)
+                for(z=0;z<n;z++)
+                    a2[i][j]+=a[i][z]*a[z][j];
+        System.out.println();
+        System.out.print("A^2=");
+    for(i=0;i<n;i++){
+        System.out.println();
+      for(j=0;j<n;j++)
+          System.out.print(a2[i][j]+" ");
+      
+        }
+    System.out.println();
+    
+      for(i=0;i<n;i++)
+            for(j=0;j<n;j++)
+                for(z=0;z<n;z++)
+                    a3[i][j]+=a2[i][z]*a[z][j];
+        System.out.println();
+        System.out.print("A^3=");
+    for(i=0;i<n;i++){
+        System.out.println();
+      for(j=0;j<n;j++)
+          System.out.print(a3[i][j]+" ");
+      
+        }
+    
+    System.out.println();
+    System.out.println();
+    for(i=0;i<n;i++)
+        for(j=0;j<n;j++)
+            c[i][j]=a[i][j]+a2[i][j]+a3[i][j];
+    
+     System.out.print("C=");
+    for(i=0;i<n;i++){
+        System.out.println();
+      for(j=0;j<n;j++)
+          System.out.print(c[i][j]+" ");
+        }
+    
+    System.out.println();
+    System.out.println();
+    
+    System.out.print("tC=");
+    for(i=0;i<n;i++){
+        System.out.println();
+      for(j=0;j<n;j++)
+          System.out.print(c[j][i]+" ");
+        }
+    
+}
+}
+    

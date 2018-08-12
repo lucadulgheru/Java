@@ -1,0 +1,75 @@
+package tp5ex1;
+import javax.swing.JOptionPane;
+public class TP5ex1 {
+
+    public static int d;
+    public static int i,j,z;
+    public static int s=0;  
+    public static int p=1;
+    public static int maxi,lowerthanmaxi;
+    public static int n=Integer.parseInt(JOptionPane.showInputDialog("n="));
+    public static int [][]a=new int[n][n];
+    public static int [][]a2=new int [n][n];
+    public static int [][]a3=new int [n][n];
+    public static int [][]c=new int [n][n];
+    
+    
+    public static void pa(int x )
+    {
+        
+        for( i=0;i<n;i++){
+      for( j=0;j<n;j++)
+           x=Integer.parseInt(JOptionPane.showInputDialog(null));
+        }
+        
+    }
+    
+    public static void pb(int x)
+    {
+        
+        for(i=0;i<n;i++){
+        System.out.println();
+      for(j=0;j<n;j++)
+          System.out.print(x+" ");
+          }
+        
+        
+    }
+    
+    public static void pc(int x)
+    {
+        
+        
+        
+        
+        for(i=0;i<a.length;i++){
+        for(j=0;j<a[i].length;j++){
+            if(a[i][j]%2==0)
+                p=p*a[i][j];
+        }
+    }
+    System.out.println();
+    System.out.print("c)"+"P="+p);
+    System.out.println();
+    System.out.print("d)");
+    }
+    
+    
+    public static void main(String[] args) {
+        
+        //a
+        pa(a[i][j]);
+          for( i=0;i<n;i++){
+      for( j=0;j<n;j++)
+           a[i][j]=Integer.parseInt(JOptionPane.showInputDialog(null));
+        System.out.println();
+        //b
+        pb(a[i][j]);
+        
+        
+        
+    }
+    
+}
+}
+

@@ -1,0 +1,50 @@
+
+package tp6ex1;
+
+
+public class TP6ex1 { 
+   public static int howmany(char a, String s)
+    { 
+    
+          int length = s.length();
+      if(length==0)
+          return 0;
+      String p=s.substring(1);
+      if(s.charAt(0)==a)
+      {
+          
+          return howmany(a,p)+1;
+      }
+      else
+      {
+          
+          return howmany(a,p);
+      }
+      
+            
+            
+        
+        
+        
+        
+    }
+    
+   
+    public static void main(String[] args) {
+        
+        int count=0,j;
+        String str="Ana are mere";
+        char x='a';
+       
+       
+        System.out.print(howmany(x,str));
+       
+       
+       
+       
+       
+    }
+    
+    
+    
+}

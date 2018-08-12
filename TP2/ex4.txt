@@ -1,0 +1,18 @@
+package lettres;
+
+import javax.swing.JOptionPane;
+public class LETTRES {
+
+    
+    public static void main(String[] args) {
+        
+       String mot1 = JOptionPane.showInputDialog("Insert message:");
+       System.out.println(mot1);
+       String mot2 = JOptionPane.showInputDialog("Insert message:");
+       System.out.println(mot2);
+       String upperCase = mot1.toUpperCase();
+       String lowerCase = mot2.toLowerCase();
+       JOptionPane.showMessageDialog(null, upperCase+""+lowerCase);
+    }
+    
+}

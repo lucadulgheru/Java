@@ -1,0 +1,70 @@
+
+package tp7ex2;
+
+
+public class Rectangle {
+
+int  longeur;
+int largeur;
+
+
+
+public Rectangle(){
+    
+    this.longeur=10;
+    this.largeur=5;
+    
+}
+
+public Rectangle(int longeur, int largeur){
+    
+    this.longeur=longeur;
+    this.largeur=largeur;
+    
+    
+}
+
+public int getLongeur(){
+    
+    if(this.longeur>0)
+        return longeur;
+    else return longeur*(-1);
+    
+}
+
+
+public int getLargeur(){
+    
+    if(this.largeur>0)
+        return largeur;
+    else return largeur*(-1);
+    
+    
+}
+
+
+public  int Perimetre(){
+    
+    return 2*(longeur+largeur);
+    
+}
+
+public  int Aire(){
+    
+    return longeur*largeur;
+}
+
+public  int estCarre(){
+    
+    if(longeur==largeur)
+        return 1;
+    else return 0;
+}
+
+
+
+    
+    
+
+    
+}

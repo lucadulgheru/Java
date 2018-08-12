@@ -1,0 +1,22 @@
+
+package nrpremier;
+
+import javax.swing.JOptionPane;
+public class NrPremier {
+
+    public static void main(String[] args) {
+      
+        
+        int n=Integer.parseInt(JOptionPane.showInputDialog("n="));
+        int i,ok=0;
+        for(i=1;i<=n;i++){
+         if(n%i==0)
+             ok++;}
+    
+    
+    if(ok==2)
+    System.out.println("n is a prime number");
+    else
+    System.out.println("n is not a prime number");}
+    
+}

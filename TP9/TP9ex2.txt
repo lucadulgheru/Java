@@ -1,0 +1,128 @@
+
+package tp9ex2;
+
+public class TP9ex2 {
+
+ 
+    
+    
+    
+    class Hospital{
+        
+       private String name;
+        private String address;
+
+         Hospital(String name, String address){
+             
+             this.name=name;
+             this.address=address;
+             
+             
+         }
+        
+        
+        
+
+        private String getAddress() {
+            return address;
+        }
+
+        private String getName() {
+            return name;
+        }
+        
+        
+        
+        
+        
+        
+    }
+    
+    
+    
+    class MedicalStaff{
+        
+        
+        
+           class Doctor{
+        
+        private int id;
+        private int idCurrentDoctor=1;
+        protected String office;
+
+        public int getId() {
+            return id;
+        }
+        
+        
+        
+        public void treatPatient(){
+            
+            
+            
+            
+            
+        }
+
+        @Override
+        public String toString() {
+            return "Doctor{" + "id=" + id + ", idCurrentDoctor=" + idCurrentDoctor + ", office=" + office + '}';
+        }
+        
+        
+        
+        
+        
+    }
+        
+        
+       private int noDoctors;
+        
+        public void hireDoctor(String office, String specialization){
+            
+        Doctor doctor = new Doctor();
+            
+            
+        }
+        
+        public void hireDoctor(String office){
+            
+            
+            
+            
+        }
+
+        @Override
+        public String toString() {
+            return "MedicalStaff{" + "noDoctors=" + noDoctors + '}';
+        }
+        
+        
+        
+        
+    }
+    
+    
+    
+    
+    class ManageHospitalSystem{
+        
+        
+        
+        
+        
+        
+        
+    }
+ 
+    
+    public static void main(String[] args) {
+        
+        
+        
+        
+        
+        
+    }
+    
+}

@@ -1,0 +1,117 @@
+
+package tp8ex1;
+
+
+ class item{
+    
+    
+    String nom;
+    double prix;
+    String code;
+    String desc;
+    
+    item(){
+        
+        this.nom=nom;
+        this.prix=prix;
+        this.code=code;
+        this.desc=desc;
+        
+        
+    }
+    
+    
+    item(String nom, String code, double prix){
+        
+        this.nom=nom;
+        this.prix=prix;
+        this.code=code;
+        
+    }
+    
+    
+    
+    
+    item(String nom,String desc, String code, double prix){
+        
+        this.nom=nom;
+        this.prix=prix;
+        this.code=code;
+        this.desc=desc;
+        
+        
+        
+    }
+    
+    
+     public double getPrice(){
+         
+         
+         return prix;
+         
+         
+     }
+     
+     
+     public double getPrice(int q){
+         
+         
+         if(q<=5)
+         return q*prix;
+         
+         else return (q*prix)-((5/100)*(q*prix));
+     }
+     
+     
+     public String getNom(){
+         
+         
+         
+         
+        return nom;
+     }
+    
+    
+}
+
+
+
+class testitem{
+    
+    
+    double testitem(item x){
+        
+        return x.getPrice();
+        
+        
+        
+    }
+    
+    
+    
+    
+    
+}
+
+
+
+
+public class TP8ex1 {
+
+  
+    public static void main(String[] args) {
+       
+        item i1=new item("Vodka","Une bouteille de Vodka", "5483918746738L" ,75.5);
+        
+        item i2=new item("Filet de citron 200g","5473664615361L",3.25);
+        
+       System.out.println(i1.getNom()+" is priced at: "+ i1.getPrice()+" E");
+       System.out.print(i2.getNom()+" is priced at: "+ i2.getPrice(6)+" E");
+       
+                
+        
+    }
+
+ 
+    
+}

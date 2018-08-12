@@ -1,0 +1,23 @@
+package nrparfait;
+
+import javax.swing.JOptionPane;
+
+class NrParfait {
+
+    
+    public static void main(String[] args) {
+        int i,j,s=0;
+        int n=Integer.parseInt(JOptionPane.showInputDialog("n="));
+        for(i=1;i<=n;i++){
+            for(j=1;j<=i/2;j++){
+               if(i%j==0)
+                   s=s+j;
+           }
+            if(s==i)
+                System.out.println(i);
+        s=0;
+    }
+    
+}
+    
+}

@@ -1,0 +1,31 @@
+package tp7ex2;
+
+public class TP7ex2 {
+
+ 
+    public static void main(String[] args) {
+      
+        int p1,p2,a1,a2,c1,c2;
+        Rectangle r1=new Rectangle(4,4);
+        Rectangle r2=new Rectangle();
+        
+        p1=r1.Perimetre();
+        p2=r2.Perimetre();
+        a1=r1.Aire();
+        a2=r2.Aire();
+        c1=r1.estCarre();
+        c2=r2.estCarre();
+        
+        System.out.println("Pour le 1ere rectangle: P1="+p1+" A1="+a1);
+        if(c1==1)
+            System.out.println("Le 1ere rectangle est carre");
+        else System.out.println("Le 1ere rectangle n'est pas carre");
+        
+        System.out.println("Pour le 2eme rectangle: P2="+p2+" A2="+a2);
+        if(c2==1)
+            System.out.println("Le 2eme rectangle est carre");
+        else System.out.println("Le 2eme rectangle n'est pas carre");
+    }
+
+   
+}

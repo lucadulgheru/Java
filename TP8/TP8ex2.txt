@@ -1,0 +1,225 @@
+
+package tp8ex2;
+
+import java.util.ArrayList;
+
+
+ class Produit {
+    
+    String name;
+    int code;
+    double prix;
+    int date;
+    int valid;
+    String categ;
+
+    
+    public String getInfo() {
+        return "Produit{" + "name=" + name + ", code=" + code + ", prix=" + prix + ", date=" + date + ", valid=" + valid + ", categ=" + categ + '}';
+    }
+    
+    
+    
+    Produit(){
+        
+        
+        this.name="Milk";
+        this.code=25;
+        this.prix=30.5;
+        this.date=2017;
+        this.valid=14;
+        this.categ="Dairy";
+        
+        
+        
+    }
+    
+    Produit(String name,int code, double prix, int date, int valid, String categ){
+        
+        
+        this.name=name;
+        this.code=code;
+        this.prix=prix;
+        this.date=date;
+        this.valid=valid;
+        this.categ=categ;
+        
+        
+        
+    }
+    
+    
+    String getName(){
+        
+        
+        return name;
+    }
+    
+    int getCode(){
+        
+        
+        
+        return code;
+    }
+    
+    double getPrix(){
+        
+        
+        return prix;
+    }
+    
+    int getDate(){
+        
+        
+        return date;
+    }
+    
+    
+    int getValid(){
+        
+        
+        
+        return valid;
+    }
+    
+    String getCateg(){
+        
+        
+        
+        return categ;
+    }
+    
+    
+    
+    
+}
+
+
+
+class Boutique{
+    
+    String nom;
+    ArrayList<Produit> produits= new ArrayList<Produit>();
+    int k=0;
+    private double prix;
+    int i;
+    double price=0;
+    int t=0;
+    double min;
+    
+    Boutique(String nom){
+        
+        this.nom=nom;
+        
+        
+        
+    }
+    
+    public void ajouter(Produit x){
+        
+        produits.add(k,x);
+        k++;
+        
+        
+       
+    }
+    
+    public void supprimer(int z){
+        
+        
+        produits.remove(z);
+            
+    }
+    
+    
+    public void modifier(Produit x, double y){
+        
+        this.prix=y;
+        
+        
+    }
+    
+    public void afficher(String p){
+        
+        
+        for(i=0;i<produits.size();i++)
+            if(produits.get(i).getCateg()==p)
+                System.out.print(produits.get(i).getName()+" ");
+            
+    }
+    
+    
+    public void afficherm(){
+        
+         min=999999;
+        for(i=0;i<produits.size();i++){
+            if(produits.get(i).getPrix()<min)
+                    min=produits.get(i).getPrix();}           
+        
+        
+        for(i=0;i<produits.size();i++)
+            if(produits.get(i).getPrix()==min)
+                System.out.print(produits.get(i).getName());
+        
+    }
+    
+    
+    public void prodperim(int x){
+        
+        for(i=0;i<produits.size();i++)
+            if(produits.get(i).getDate()<x)
+                System.out.print(produits.get(i).getName()+" ");
+        
+        
+        
+    }
+    
+    public double moyenneprix(int h){
+        
+        for(i=0;i<produits.size();i++)
+            if(produits.get(i).getDate()<h){
+                     price=price+produits.get(i).getPrix();
+        t++;}
+        
+        
+        return price/t;
+        
+    }
+    
+}
+
+
+
+
+
+
+
+public class TP8ex2 {
+
+    
+    public static void main(String[] args) {
+        
+        
+       Boutique b1=new Boutique("Mega Image");
+        Produit p1=new Produit("Lapte", 10, 35, 2017, 14, "Lactate" );
+         Produit p2=new Produit("Branza", 11, 40, 2017, 14, "Lactate" );
+          Produit p3=new Produit("Smantana", 12, 42, 2017, 14, "Lactate" );
+          
+          b1.ajouter(p1);
+          b1.ajouter(p3);
+          b1.ajouter(p2);
+          
+    
+         System.out.println(p1.getInfo());
+         System.out.println(p2.getInfo());
+         System.out.println(p3.getInfo()); 
+          
+          b1.supprimer(2);
+          
+          b1.afficher("Lactate");
+          System.out.println();
+          b1.afficherm();
+          
+    }
+    
+}

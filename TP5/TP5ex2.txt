@@ -1,0 +1,25 @@
+
+package tp5ex2;
+import javax.swing.JOptionPane;
+
+public class TP5ex2 {
+
+    
+    public static double polynome(int x){
+        
+        double p;
+        p=Math.pow(x, 3)+2*Math.pow(x, 2)-4*x+1;
+        
+        return p;
+        
+    }
+   
+    public static void main(String[] args) {
+       
+        int n=Integer.parseInt(JOptionPane.showInputDialog("n="));
+        
+        System.out.print(polynome(n));
+        
+    }
+    
+}

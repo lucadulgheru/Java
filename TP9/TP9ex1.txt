@@ -1,0 +1,240 @@
+
+package tp9ex1;
+
+import java.util.ArrayList;
+import java.util.GregorianCalendar;
+import javax.swing.JOptionPane;
+
+
+
+
+
+    
+          class Voiture{
+        
+      public int code;
+      public String marque;
+      public String modele;
+      public double prix;
+      public String pays;
+      public int date;
+        
+        Voiture(int code, String marque, String modele, double prix, String pays, int date){
+            
+            this.code=code;
+            this.marque=marque;
+            this.modele=modele;
+            this.prix=prix;
+            this.pays=pays;
+            this.date=date;
+            
+            
+            
+        }
+
+    @Override
+    public String toString() {
+        return "code=" + code + ", marque=" + marque + ", modele=" + modele + ", prix=" + prix + ", pays=" + pays + ", date=" + date;
+    }
+
+    public int getCode() {
+        return code;
+    }
+
+   public int getDate() {
+        return date;
+    }
+
+    public String getMarque() {
+        return marque;
+    }
+
+    public String getModele() {
+        return modele;
+    }
+
+    public String getPays() {
+        return pays;
+    }
+
+    public double getPrix() {
+        return prix;
+    }
+
+    public void setCode(int code) {
+        this.code = code;
+    }
+
+    public void setMarque(String marque) {
+        this.marque = marque;
+    }
+
+    public void setModele(String modele) {
+        this.modele = modele;
+    }
+
+    public void setPrix(double prix) {
+        this.prix = prix;
+    }
+
+    public void setPays(String pays) {
+        this.pays = pays;
+    }
+
+   public void setDate(int date) {
+        this.date = date;
+    }
+      
+      
+        
+    }
+
+
+
+     class Parking{
+         
+         
+         
+         ArrayList<Voiture> cars= new ArrayList<>();
+         public int max;
+         public double maxprix;
+         int i;
+         
+         
+             public Parking(int max) {
+        this.max = max;
+    }
+         
+         
+         public void ajouterVoiture(Voiture x){
+             
+                i=0;
+                cars.add(i,x);
+         
+             
+             
+         }
+         
+         public void retirerVoiture(int z){
+             
+             for(i=0;i<cars.size();i++)
+                 if(cars.get(i).getCode()==z)
+                      cars.remove(i);
+         }
+         
+         
+         public void modifPays(int k, String l){
+             
+             for(i=0;i<cars.size();i++)
+                 if(cars.get(i).getCode()==k)
+                       
+                    cars.get(i).setPays(l); 
+             
+         }
+         
+         
+         
+         public void montrerMarque(String x){
+             
+             for(i=0;i<cars.size();i++)
+                 if(cars.get(i).getMarque()==x)
+             
+                    System.out.println(cars.get(i).toString());
+         }
+         
+         
+         
+         
+        public void trouverFabr(){
+             
+             
+             for(i=0;i<cars.size();i++)
+                 if(cars.get(i).getDate()==2016 || cars.get(i).getDate()==2015)
+             
+                 System.out.println(cars.get(i).toString());
+             
+         }
+         
+         public void trouverCher(){
+             
+             maxprix=0;
+             for(i=0;i<cars.size();i++){
+             
+                 if(cars.get(i).getPrix()>maxprix)
+                     maxprix=cars.get(i).getPrix();}
+             
+          
+             for(i=0;i<cars.size();i++)
+                 if(cars.get(i).getPrix()==maxprix)
+                     System.out.println(cars.get(i).toString());
+         }
+  
+         
+         
+         
+     }
+
+
+
+
+
+
+class Test{
+    
+    
+    public void shouldTestMyStuff(){
+        
+        
+        
+        Parking park1=new Parking(20);
+        
+        Voiture v1=new Voiture(55690,"Ford","Mustang", 30000, "USA",2014);
+        Voiture v2=new Voiture(35900,"Ford","Focus", 13000, "USA",2016);
+        Voiture v3=new Voiture(35750,"Ford","Focus", 10000, "Germany",2012);
+        Voiture v4=new Voiture(23390,"Ford","Fiesta", 8000, "Netherlands",2010);
+        Voiture v5=new Voiture(89690,"Ford","Mondeo", 25000, "Germany",2015);
+        Voiture v6=new Voiture(5569011,"Nissan","350Z", 10000, "Japan",2006);
+        Voiture v7=new Voiture(1569090,"Nissan","Skyline", 25000, "Japan",1998);
+        Voiture v8=new Voiture(6569012,"Nissan","GTR", 70000, "Japan",2016);
+        
+        park1.ajouterVoiture(v1);
+         park1.ajouterVoiture(v2);
+          park1.ajouterVoiture(v3);
+           park1.ajouterVoiture(v4);
+            park1.ajouterVoiture(v5);
+             park1.ajouterVoiture(v6);
+              park1.ajouterVoiture(v7);
+               park1.ajouterVoiture(v8);
+               
+         park1.retirerVoiture(23390);
+         park1.modifPays(35750, "Denmark");
+         
+         park1.montrerMarque("Ford");
+         System.out.println();
+         park1.trouverCher();
+        System.out.println();
+        park1.trouverFabr();
+    }
+    
+    
+    
+    
+}
+
+public class TP9ex1 {
+
+    
+    
+    
+    
+  
+    
+    
+    public static void main(String[] args) {
+       
+       
+     Test t1=new Test();
+         t1.shouldTestMyStuff();
+    }
+    
+}
